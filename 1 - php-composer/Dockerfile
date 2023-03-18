@@ -4,6 +4,8 @@
 
 FROM composer as php-deps-installer
 COPY ./composer.json /app
+RUN apt-get update
+RUN apt-get install -y zip unzip git
 RUN composer install --no-interaction --ignore-platform-reqs --no-scripts
 
 #
